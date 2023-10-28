@@ -1,0 +1,67 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.Display li {
+  list-style: none;
+  text-align: right;
+}
+
+.weatherNow {
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+body {
+  font-family: "Lisu Bosa", serif;
+  background: linear-gradient(111.5deg,
+      rgb(228, 247, 255) 21.9%,
+      rgb(255, 216, 194) 92.2%);
+}
+
+.Display {
+  border: 1px solid gray;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.Now {
+  display: block;
+  margin: 0 auto;
+  font-size: 15px;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.cityDisplay {
+  margin: 0 auto;
+}
+
+.Temp {
+  padding-left: 70px;
+  font-size: 35px;
+  padding-top: 0 auto;
+}
+
+.dateText {
+  font-size: 25px;
+  margin-top: 10px;
+}
+
+.changeTheme {
+  display: block;
+  margin: 0 auto;
+  font-size: 15px;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.newTheme {
+  background: linear-gradient(109.6deg,
+      rgb(17, 151, 147) 11.2%,
+      rgb(154, 214, 212) 55.4%,
+      rgb(255, 233, 171) 100.2%);
+}
