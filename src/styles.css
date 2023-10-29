@@ -28,14 +28,6 @@ body {
   border-radius: 5px;
 }
 
-.Now {
-  display: block;
-  margin: 0 auto;
-  font-size: 15px;
-  padding: 5px;
-  border-radius: 15px;
-}
-
 .cityDisplay {
   margin: 0 auto;
 }

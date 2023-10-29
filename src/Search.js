@@ -12,7 +12,7 @@ export default function Search() {
         />
         <input type="submit" value="🔎" />
       </form>
-      <button className="now" id="current-location">
+      <button className="now btn btn-primary" id="current-location">
         Current
       </button>
     </div>
