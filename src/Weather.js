@@ -11,11 +11,10 @@ export default function Weather() {
   function weatherDisplay(response) {
     setLoaded(true);
     setWeather({
-      city: response.data.city,
-      temp: response.data.temperature.current,
-      humdity: response.data.temperature.humidity,
+      temp: response.data.main.temp,
+      humdity: response.data.main.humidity,
       wind: response.data.wind.speed,
-      description: response.data.condition.description,
+      description: response.data.weather[0].description,
     });
   }
 
@@ -58,14 +57,14 @@ export default function Weather() {
             className="float-left"
           />
           <ul>
-            <li id="wind-speed">wind: {Weather.speed}</li>
-            <li id="humidity">Humidity: {Weather.humidity}</li>
+            <li id="wind-speed">wind: {weather.speed}</li>
+            <li id="humidity">Humidity: {weather.humidity}</li>
           </ul>
           <div className="weatherNow">
             <h1 className="cityDisplay" id="city">
-              Detroit 🌡
+              {city}🌡
             </h1>
-            <span className="Temp">{Weather.temp}</span>
+            <span className="Temp"> {Math.round(Weather.temp)}</span>
             <span className="Convert" id="convert">
               {" "}
               °F{" "}
