@@ -12,7 +12,7 @@ export default function Weather() {
     setLoaded(true);
     setWeather({
       temp: response.data.main.temp,
-      humdity: response.data.main.humidity,
+      humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
       description: response.data.weather[0].description,
     });
@@ -34,7 +34,7 @@ export default function Weather() {
       <form id="change-city" onSubmit={Submit}>
         <input
           type="search"
-          placeholder="change city "
+          placeholder="Change city..."
           id="search-bar"
           autocomplete="off"
           onChange={cityUpdate}
@@ -57,14 +57,14 @@ export default function Weather() {
             className="float-left"
           />
           <ul>
-            <li id="wind-speed">wind: {weather.speed}</li>
+            <li id="wind-speed">wind: {Math.round(weather.wind)}</li>
             <li id="humidity">Humidity: {weather.humidity}</li>
           </ul>
           <div className="weatherNow">
             <h1 className="cityDisplay" id="city">
               {city}🌡
             </h1>
-            <span className="Temp"> {Math.round(Weather.temp)}</span>
+            <span className="Temp"> {Math.round(weather.temp)}</span>
             <span className="Convert" id="convert">
               {" "}
               °F{" "}
