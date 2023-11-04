@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import "./styles.css";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.css";
-import formattedDate from "./formattedDate";
+import FormattedDate from "./formattedDate";
 
 export default function Weather() {
   let [city, setCity] = useState("");
@@ -73,7 +73,7 @@ export default function Weather() {
               °F{" "}
             </span>
             <p className="dateText" id="date">
-              <formattedDate date={weather.date} />
+              <FormattedDate date={weather.date} />
             </p>
           </div>
           <div className="weatherForecast" id="forecast"></div>
