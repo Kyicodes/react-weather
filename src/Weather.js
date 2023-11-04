@@ -4,6 +4,7 @@ import "./styles.css";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.css";
 import FormattedDate from "./formattedDate";
+import weeklyForecast from "./weeklyForecast";
 
 export default function Weather() {
   let [city, setCity] = useState("");
@@ -76,7 +77,9 @@ export default function Weather() {
               <FormattedDate date={weather.date} />
             </p>
           </div>
-          <div className="weatherForecast" id="forecast"></div>
+          <div className="weatherForecast" id="forecast">
+            <weeklyForecast />
+          </div>
         </div>
       </div>
     );
