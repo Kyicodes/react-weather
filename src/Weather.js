@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 import "./styles.css";
 import axios from "axios";
+import "bootstrap/dist/css/bootstrap.css";
+import formattedDate from "./formattedDate";
 
 export default function Weather() {
   let [city, setCity] = useState("");
@@ -15,6 +17,7 @@ export default function Weather() {
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
       description: response.data.weather[0].description,
+      date: new Date(response.data.dt * 1000),
     });
   }
 
@@ -48,20 +51,20 @@ export default function Weather() {
     return (
       <div>
         {searchForm}
-        <div className="Display">
-          <p className="Description">Sunny</p>
+        <div className="daily-forecast">
           <img
             id="icon"
             src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
             alt=""
-            className="float-left"
+            className="float-start"
           />
+          <span className="float-start mt-4">{weather.description}</span>
           <ul>
-            <li id="wind-speed">wind: {Math.round(weather.wind)}</li>
-            <li id="humidity">Humidity: {weather.humidity}</li>
+            <li className="text-end mt-5">wind: {Math.round(weather.wind)}</li>
+            <li className="text-end">Humidity: {weather.humidity}</li>
           </ul>
           <div className="weatherNow">
-            <h1 className="cityDisplay" id="city">
+            <h1 className="cityDisplay text-capitalize" id="city">
               {city}🌡
             </h1>
             <span className="Temp"> {Math.round(weather.temp)}</span>
@@ -70,7 +73,7 @@ export default function Weather() {
               °F{" "}
             </span>
             <p className="dateText" id="date">
-              Thursday July 27, 2023
+              <formattedDate date={weather.date} />
             </p>
           </div>
           <div className="weatherForecast" id="forecast"></div>
