@@ -4,7 +4,7 @@ import "./styles.css";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.css";
 import FormattedDate from "./formattedDate";
-import weeklyForecast from "./weeklyForecast";
+import WeeklyForecast from "./weeklyForecast";
 
 export default function Weather() {
   let [city, setCity] = useState("");
@@ -14,18 +14,19 @@ export default function Weather() {
   function weatherDisplay(response) {
     setLoaded(true);
     setWeather({
-      temp: response.data.main.temp,
-      humidity: response.data.main.humidity,
+      temp: response.data.temperature.current,
+      humidity: response.data.temperature.humidity,
       wind: response.data.wind.speed,
-      description: response.data.weather[0].description,
-      date: new Date(response.data.dt * 1000),
+      description: response.data.condition.description,
+      icon: response.data.condition.icon_url,
+      date: new Date(response.data.time * 1000),
     });
   }
 
   function Submit(event) {
     event.preventDefault();
-    let key = "8161b4309ee03faae957729ba7104797";
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=imperial`;
+    let key = "55ea3bd4ftf0bf63c7f231oa6c374c08";
+    let url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${key}&units=imperial`;
     axios.get(url).then(weatherDisplay);
   }
 
@@ -53,12 +54,7 @@ export default function Weather() {
       <div>
         {searchForm}
         <div className="daily-forecast">
-          <img
-            id="icon"
-            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
-            alt=""
-            className="float-start"
-          />
+          <img id="icon" src={weather.icon} alt="" className="float-start" />
           <span className="float-start mt-4">{weather.description}</span>
           <ul>
             <li className="text-end mt-5">wind: {Math.round(weather.wind)}</li>
@@ -69,16 +65,13 @@ export default function Weather() {
               {city}🌡
             </h1>
             <span className="Temp"> {Math.round(weather.temp)}</span>
-            <span className="Convert" id="convert">
-              {" "}
-              °F{" "}
-            </span>
+            <span> °F </span>
             <p className="dateText" id="date">
               <FormattedDate date={weather.date} />
             </p>
           </div>
-          <div className="weatherForecast" id="forecast">
-            <weeklyForecast />
+          <div className="weeklyForecast" id="forecast">
+            <WeeklyForecast />
           </div>
         </div>
       </div>

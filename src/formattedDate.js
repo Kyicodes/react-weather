@@ -2,7 +2,7 @@ import React from "react";
 
 import "./styles.css";
 
-export default function formattedDate(props) {
+export default function FormattedDate(props) {
   let hours = props.date.getHours();
   if (hours < 10) {
     hours = `0 ${hours}`;
