@@ -14,6 +14,7 @@ export default function Weather() {
   function weatherDisplay(response) {
     setLoaded(true);
     setWeather({
+      coordinates: response.data.coordinates,
       temp: response.data.temperature.current,
       humidity: response.data.temperature.humidity,
       wind: response.data.wind.speed,
@@ -71,7 +72,7 @@ export default function Weather() {
             </p>
           </div>
           <div className="weeklyForecast" id="forecast">
-            <WeeklyForecast />
+            <WeeklyForecast coordinates={weather.coordinates} />
           </div>
         </div>
       </div>
