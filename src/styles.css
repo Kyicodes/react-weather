@@ -29,6 +29,11 @@ li {
   border-radius: 5px;
 }
 
+.Card {
+  background-color: rgba(255, 250, 240, 0.8);
+  border-radius: 15px;
+}
+
 .cityDisplay {
   margin: 0 auto;
 }
@@ -42,21 +47,6 @@ li {
 .dateText {
   font-size: 25px;
   margin-top: 10px;
-}
-
-.changeTheme {
-  display: block;
-  margin: 0 auto;
-  font-size: 15px;
-  padding: 5px;
-  border-radius: 15px;
-}
-
-.newTheme {
-  background: linear-gradient(109.6deg,
-      rgb(17, 151, 147) 11.2%,
-      rgb(154, 214, 212) 55.4%,
-      rgb(255, 233, 171) 100.2%);
 }
 
 .Footer {
