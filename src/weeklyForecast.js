@@ -22,8 +22,8 @@ export default function WeeklyForecast(props) {
             if (index < 6) {
               return (
                 <div className="col-md" key={index}>
-                  {index}
                   <ForecastDay data={dailyForecast} />
+                  <br />
                 </div>
               );
             }
