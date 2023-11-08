@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 
 import "./styles.css";
+import { ThreeDots } from "react-loader-spinner";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.css";
 import FormattedDate from "./formattedDate";
 import WeeklyForecast from "./weeklyForecast";
 
-export default function Weather() {
+export default function Weather(props) {
   let [city, setCity] = useState("");
   let [weather, setWeather] = useState({});
-  let [loaded, setLoaded] = useState(false);
+  let [loaded, setLoaded] = useState("");
 
   function weatherDisplay(response) {
     setLoaded(true);
@@ -78,6 +79,21 @@ export default function Weather() {
       </div>
     );
   } else {
-    return searchForm;
+    return (
+      <div>
+        {searchForm}
+        <div className="Loader">
+          <ThreeDots
+            height="100"
+            width="100"
+            radius="9"
+            color="#71a0a5"
+            ariaLabel="loading"
+            wrapperStyle
+            wrapperClass
+          />
+        </div>
+      </div>
+    );
   }
 }
