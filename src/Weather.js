@@ -11,6 +11,7 @@ export default function Weather(props) {
   let [city, setCity] = useState("");
   let [weather, setWeather] = useState({});
   let [loaded, setLoaded] = useState("");
+  let [cityInput, setCityInput] = useState("");
 
   function weatherDisplay(response) {
     setLoaded(true);
@@ -27,13 +28,14 @@ export default function Weather(props) {
 
   function Submit(event) {
     event.preventDefault();
+    setCity(cityInput);
     let key = "55ea3bd4ftf0bf63c7f231oa6c374c08";
     let url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${key}&units=imperial`;
     axios.get(url).then(weatherDisplay);
   }
 
   function cityUpdate(event) {
-    setCity(event.target.value);
+    setCityInput(event.target.value);
   }
 
   let searchForm = (
@@ -44,6 +46,7 @@ export default function Weather(props) {
           placeholder="Change city..."
           id="search-bar"
           autocomplete="off"
+          value={cityInput}
           onChange={cityUpdate}
         />
         <input type="submit" value="🔎" />
