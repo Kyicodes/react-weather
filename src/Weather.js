@@ -30,7 +30,7 @@ export default function Weather(props) {
     event.preventDefault();
     setCity(cityInput);
     let key = "55ea3bd4ftf0bf63c7f231oa6c374c08";
-    let url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${key}&units=imperial`;
+    let url = `https://api.shecodes.io/weather/v1/current?query=${cityInput}&key=${key}&units=imperial`;
     axios.get(url).then(weatherDisplay);
   }
 
